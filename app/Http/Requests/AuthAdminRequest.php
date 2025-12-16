@@ -21,8 +21,9 @@ class AuthAdminRequest extends FormRequest
      */
     public function rules(): array
     {
+        \Log::info($this->all());
         return [
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|email|max:255',
             'password' => 'required|string|min:8|max:255',
         ];
     }
