@@ -9,3 +9,23 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+[x-cloak] { display: none !important; }
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track{
+    background: #2D3748;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #CBD5E0;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #718096;
+}
