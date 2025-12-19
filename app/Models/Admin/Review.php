@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
