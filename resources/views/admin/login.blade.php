@@ -14,10 +14,10 @@
 
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="{{route('admin.auth')}}" method="POST" class="space-y-6">
+        <form action="{{route('auth')}}" method="POST" class="space-y-6">
 
             @if(session('error'))
-                <div class="mb-4 p-3 rounded bg-red-100 text-red-700">
+                <div class="mb-4 p-3 rounded bg-red-100 text-red">
                     {{ session('error') }}
                 </div>
             @endif

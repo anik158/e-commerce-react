@@ -15,9 +15,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        \Log::info('In AdminMiddleware');
         if(auth()->guard('admin')->check()){
+            \Log::info('AdminMiddleware Success');
             return $next($request);
         }
-        return redirect()->route('admin.login');
+        \Log::info('In AdminMiddleware Fail');
+        return redirect()->route('login');
     }
 }
