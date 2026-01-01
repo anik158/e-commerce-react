@@ -21,15 +21,24 @@ class ColorController extends Controller
         $this->colorService = $colorService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $color = Color::select(['id', 'name'])->paginate(20);
-        return view('admin.color.index', compact('color'));
+        $search = $request->get('search', '');
+
+        $colors = Color::select(['id', 'name'])
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(20);
+
+        $colors->appends(['search' => $search]);
+
+        return view('admin.color.index', compact('colors', 'search'));
     }
 
     public function create()
     {
-        return view('admin.color.add-edit');
+        return view('admin.color.add-edit',['color' => null]);
     }
 
     public function store(ColorRequest $request)
@@ -45,7 +54,6 @@ class ColorController extends Controller
 
     public function edit(Color $color)
     {
-        \Log::info("$color".$color);
         return view('admin.color.add-edit', compact('color'));
     }
 
